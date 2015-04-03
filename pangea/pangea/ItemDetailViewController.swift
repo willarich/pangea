@@ -10,18 +10,11 @@ import UIKit
 
 class ItemDetailViewController: UIViewController
 {
-    var itemImage : UIImage?
-    var itemName : String?
-    var itemDescription : String?
-    var itemPrice : Int?
-    
-    private var itemImageView : UIImageView?
+    @IBOutlet weak private var itemImageView: UIImageView!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        self.itemImageView!.image = self.itemImage
-
         // Do any additional setup after loading the view.
     }
 

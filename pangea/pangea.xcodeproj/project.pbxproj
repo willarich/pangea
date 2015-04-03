@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		171D24121ACC58E100E96781 /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171D24111ACC58E100E96781 /* ItemDetailViewController.swift */; };
+		1A2AEB2C1ACEF4FF001A863E /* ItemDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A2AEB2B1ACEF4FF001A863E /* ItemDetailView.xib */; };
 		DAF1FB061AC9AF57001E1B50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF1FB051AC9AF57001E1B50 /* AppDelegate.swift */; };
 		DAF1FB091AC9AF57001E1B50 /* pangea.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAF1FB071AC9AF57001E1B50 /* pangea.xcdatamodeld */; };
 		DAF1FB0B1AC9AF57001E1B50 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF1FB0A1AC9AF57001E1B50 /* ViewController.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		171D24111ACC58E100E96781 /* ItemDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
+		1A2AEB2B1ACEF4FF001A863E /* ItemDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemDetailView.xib; sourceTree = "<group>"; };
 		DAF1FB001AC9AF57001E1B50 /* pangea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pangea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAF1FB041AC9AF57001E1B50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAF1FB051AC9AF57001E1B50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				171D24111ACC58E100E96781 /* ItemDetailViewController.swift */,
+				1A2AEB2B1ACEF4FF001A863E /* ItemDetailView.xib */,
 				DAF1FB051AC9AF57001E1B50 /* AppDelegate.swift */,
 				DAF1FB0A1AC9AF57001E1B50 /* ViewController.swift */,
 				DAF1FB0C1AC9AF57001E1B50 /* Main.storyboard */,
@@ -198,6 +201,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A2AEB2C1ACEF4FF001A863E /* ItemDetailView.xib in Resources */,
 				DAF1FB0E1AC9AF57001E1B50 /* Main.storyboard in Resources */,
 				DAF1FB131AC9AF57001E1B50 /* LaunchScreen.xib in Resources */,
 				DAF1FB101AC9AF57001E1B50 /* Images.xcassets in Resources */,
