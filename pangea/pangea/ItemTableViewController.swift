@@ -99,18 +99,22 @@ class ItemTableViewController : UITableViewController, UISearchBarDelegate, UISe
         return cell
     }
     
+    /*
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
         self.performSegueWithIdentifier("itemDetail", sender: tableView)
         //self.navigationController?.setNavigationBarHidden(false, animated: false)
 
             }
+*/
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if segue.identifier == "itemDetail" {
+            self.navigationController!.
             self.navigationController?.setNavigationBarHidden(false, animated: false)
             let itemDetailViewController = segue.destinationViewController as UIViewController
-            if sender as UITableView == self.searchDisplayController!.searchResultsTableView {
+            
+            if self.searchDisplayController!.active {
                 let indexPath = self.searchDisplayController!.searchResultsTableView.indexPathForSelectedRow()!
                 let destinationTitle = self.filteredItemList[indexPath.row].name
                 itemDetailViewController.title = destinationTitle

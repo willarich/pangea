@@ -43,6 +43,9 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vp1-GE-P4u" id="gGy-7N-OhJ">
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="muS-ZO-sKT" kind="showDetail" identifier="itemDetail" id="f2B-Th-4og"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -54,7 +57,6 @@
                     <navigationItem key="navigationItem" title="Item Search" id="5Qq-Er-cTC"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="r2d-5E-cz0" id="IXh-mh-6gE"/>
-                        <segue destination="muS-ZO-sKT" kind="show" identifier="itemDetail" id="STY-X1-nHH"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hDM-nh-nof" userLabel="First Responder" sceneMemberID="firstResponder"/>
