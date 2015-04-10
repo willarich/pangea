@@ -29,12 +29,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search" id="KZa-On-AJE">
+                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" placeholder="Search" id="Lgs-hE-Fh5">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
-                                <outlet property="delegate" destination="ZT0-gf-c8g" id="1ee-mJ-rR0"/>
+                                <outlet property="delegate" destination="ZT0-gf-c8g" id="hLD-iZ-xwk"/>
                             </connections>
                         </searchBar>
                         <prototypes>
@@ -45,6 +45,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="ZT0-gf-c8g" id="Pc6-nq-OVf"/>
                             <outlet property="delegate" destination="ZT0-gf-c8g" id="jzn-nt-EbB"/>
@@ -52,7 +53,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Item Search" id="5Qq-Er-cTC"/>
                     <connections>
-                        <outlet property="searchDisplayController" destination="G7d-mo-LKE" id="rl6-ng-i6v"/>
+                        <outlet property="searchDisplayController" destination="r2d-5E-cz0" id="IXh-mh-6gE"/>
                         <segue destination="muS-ZO-sKT" kind="show" identifier="itemDetail" id="STY-X1-nHH"/>
                     </connections>
                 </tableViewController>
@@ -60,10 +61,18 @@
                 <searchDisplayController id="G7d-mo-LKE">
                     <connections>
                         <outlet property="delegate" destination="ZT0-gf-c8g" id="kgV-R8-fhf"/>
-                        <outlet property="searchBar" destination="KZa-On-AJE" id="aZ6-bJ-h85"/>
                         <outlet property="searchContentsController" destination="ZT0-gf-c8g" id="MjH-JO-mGn"/>
                         <outlet property="searchResultsDataSource" destination="ZT0-gf-c8g" id="9r2-OL-KEz"/>
                         <outlet property="searchResultsDelegate" destination="ZT0-gf-c8g" id="h0o-Xx-y0X"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="r2d-5E-cz0">
+                    <connections>
+                        <outlet property="delegate" destination="ZT0-gf-c8g" id="wgJ-ra-9zW"/>
+                        <outlet property="searchBar" destination="Lgs-hE-Fh5" id="8uE-2y-wOi"/>
+                        <outlet property="searchContentsController" destination="ZT0-gf-c8g" id="C5T-7f-75n"/>
+                        <outlet property="searchResultsDataSource" destination="ZT0-gf-c8g" id="iur-Nl-kQt"/>
+                        <outlet property="searchResultsDelegate" destination="ZT0-gf-c8g" id="CMM-cj-05R"/>
                     </connections>
                 </searchDisplayController>
             </objects>
@@ -81,8 +90,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Stuff" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LT9-bE-QiJ">
-                                <rect key="frame" x="309" y="271" width="97" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Stuff" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XBj-hM-LZV">
+                                <rect key="frame" x="44" y="125" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>

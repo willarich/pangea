@@ -89,11 +89,11 @@
 		DAF1FB021AC9AF57001E1B50 /* pangea */ = {
 			isa = PBXGroup;
 			children = (
+				DAF1FB051AC9AF57001E1B50 /* AppDelegate.swift */,
 				171D24111ACC58E100E96781 /* ItemDetailViewController.swift */,
 				1A2AEB2B1ACEF4FF001A863E /* ItemDetailView.xib */,
 				DA2B99331AD45D9E00C3C04B /* CategoryViewController.swift */,
 				DA2B99311AD3278E00C3C04B /* ItemTableViewController.swift */,
-				DAF1FB051AC9AF57001E1B50 /* AppDelegate.swift */,
 				DAF1FB0A1AC9AF57001E1B50 /* ViewController.swift */,
 				DAF1FB0C1AC9AF57001E1B50 /* Main.storyboard */,
 				DAF1FB0F1AC9AF57001E1B50 /* Images.xcassets */,

@@ -14,10 +14,12 @@ class ItemTableViewController : UITableViewController, UISearchBarDelegate, UISe
     var filteredItemList = [ItemList]()
 
 
+    /*
+        Currently creates sample data then reloads the table. Update as functionality changes.
+    */
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Sample Data for candyArray
         self.itemList = [ItemList(category:"Chocolate", name:"chocolate Bar", price: 1234),
             ItemList(category:"Chocolate", name:"chocolate Chip", price: 1234),
             ItemList(category:"Chocolate", name:"dark chocolate", price: 1234),
@@ -28,21 +30,26 @@ class ItemTableViewController : UITableViewController, UISearchBarDelegate, UISe
             ItemList(category:"Other", name:"sour chew", price: 1234),
             ItemList(category:"Other", name:"gummi bear", price: 1234)]
         
-        // Reload the table
         self.tableView.reloadData()
     }
     
+    /*
+        Returns true or false depending on whether the given item should be a
+        part of the filtered item list after a search query is entered
+    */
     func filterContentForSearchText(searchText: String, scope: String = "All") {
-        // Filter the array using the filter method
-        
         self.filteredItemList = self.itemList.filter({ (items: ItemList)-> Bool in
             let stringMatch = items.name.rangeOfString(searchText)
             return stringMatch != nil ? true : false
         })
     }
     
+    /*
+        Updated the UI to show the filtered list of results -- ??
+    */
     func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchString searchString: String!) -> Bool {
         self.filterContentForSearchText(searchString)
+        
         return true
     }
     
@@ -51,7 +58,17 @@ class ItemTableViewController : UITableViewController, UISearchBarDelegate, UISe
         return true
     }
     
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         if tableView == self.searchDisplayController!.searchResultsTableView {
             return self.filteredItemList.count
         } else {
@@ -59,19 +76,23 @@ class ItemTableViewController : UITableViewController, UISearchBarDelegate, UISe
         }
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        //ask for a reusable cell from the tableview, the tableview will create a new one if it doesn't have any
+    /*
+        Asks for reusable cells for the table view and creates a new one if none 
+        are available. Checks to see if the full table is being displayed or 
+        just the filtered item list. Then configures the cells.
+    */
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+        {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
-        
         var item : ItemList
-        // Check to see whether the normal table or search results table is being displayed and set the Candy object from the appropriate array
+            
         if tableView == self.searchDisplayController!.searchResultsTableView {
             item = filteredItemList[indexPath.row]
-        } else {
+        }
+        else {
             item = itemList[indexPath.row]
         }
-        
-        // Configure the cell
+
         cell.textLabel!.text = item.name
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         
@@ -79,11 +100,15 @@ class ItemTableViewController : UITableViewController, UISearchBarDelegate, UISe
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+
         self.performSegueWithIdentifier("itemDetail", sender: tableView)
-    }
+        //self.navigationController?.setNavigationBarHidden(false, animated: false)
+
+            }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if segue.identifier == "itemDetail" {
+            self.navigationController?.setNavigationBarHidden(false, animated: false)
             let itemDetailViewController = segue.destinationViewController as UIViewController
             if sender as UITableView == self.searchDisplayController!.searchResultsTableView {
                 let indexPath = self.searchDisplayController!.searchResultsTableView.indexPathForSelectedRow()!
