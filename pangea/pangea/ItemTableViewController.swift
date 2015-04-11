@@ -51,10 +51,12 @@ class ItemTableViewController : UITableViewController, UISearchDisplayDelegate
         let cell = self.tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
         var item : ItemList
             
-        if tableView == self.searchDisplayController!.searchResultsTableView {
+        if tableView == self.searchDisplayController!.searchResultsTableView
+        {
             item = filteredItemList[indexPath.row]
         }
-        else {
+        else
+        {
             item = itemList[indexPath.row]
         }
 
@@ -63,15 +65,6 @@ class ItemTableViewController : UITableViewController, UISearchDisplayDelegate
         
         return cell
     }
-    
-    /*
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-
-        self.performSegueWithIdentifier("itemDetail", sender: tableView)
-        //self.navigationController?.setNavigationBarHidden(false, animated: false)
-
-            }
-*/
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!)
     {
