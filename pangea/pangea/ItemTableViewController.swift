@@ -8,11 +8,10 @@
 
 import UIKit
 
-class ItemTableViewController : UITableViewController, UISearchBarDelegate, UISearchDisplayDelegate {
-
+class ItemTableViewController : UITableViewController, UISearchDisplayDelegate
+{
     var itemList = [ItemList]()
     var filteredItemList = [ItemList]()
-
 
     /*
         Currently creates sample data then reloads the table. Update as functionality changes.
@@ -33,42 +32,8 @@ class ItemTableViewController : UITableViewController, UISearchBarDelegate, UISe
         self.tableView.reloadData()
     }
     
-    /*
-        Returns true or false depending on whether the given item should be a
-        part of the filtered item list after a search query is entered
-    */
-    func filterContentForSearchText(searchText: String, scope: String = "All") {
-        self.filteredItemList = self.itemList.filter({ (items: ItemList)-> Bool in
-            let stringMatch = items.name.rangeOfString(searchText)
-            return stringMatch != nil ? true : false
-        })
-    }
-    
-    /*
-        Updated the UI to show the filtered list of results -- ??
-    */
-    func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchString searchString: String!) -> Bool {
-        self.filterContentForSearchText(searchString)
-        
-        return true
-    }
-    
-    func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchScope searchOption: Int) -> Bool {
-        self.filterContentForSearchText(self.searchDisplayController!.searchBar.text)
-        return true
-    }
-    
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-    }
-    
-    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-    }
-    
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
         if tableView == self.searchDisplayController!.searchResultsTableView {
             return self.filteredItemList.count
         } else {
@@ -82,7 +47,7 @@ class ItemTableViewController : UITableViewController, UISearchBarDelegate, UISe
         just the filtered item list. Then configures the cells.
     */
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
-        {
+    {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
         var item : ItemList
             
@@ -108,21 +73,42 @@ class ItemTableViewController : UITableViewController, UISearchBarDelegate, UISe
             }
 */
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if segue.identifier == "itemDetail" {
-            self.navigationController!.
-            self.navigationController?.setNavigationBarHidden(false, animated: false)
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!)
+    {
+        if segue.identifier == "itemDetail"
+        {
             let itemDetailViewController = segue.destinationViewController as UIViewController
-            
-            if self.searchDisplayController!.active {
-                let indexPath = self.searchDisplayController!.searchResultsTableView.indexPathForSelectedRow()!
-                let destinationTitle = self.filteredItemList[indexPath.row].name
-                itemDetailViewController.title = destinationTitle
-            } else {
-                let indexPath = self.tableView.indexPathForSelectedRow()!
-                let destinationTitle = self.itemList[indexPath.row].name
-                itemDetailViewController.title = destinationTitle
-            }
+            let selectedCell = sender as UITableViewCell
+            itemDetailViewController.title = selectedCell.textLabel?.text
         }
+    }
+}
+
+// MARK:- UISearchDisplayDelegate
+
+extension ItemTableViewController : UISearchDisplayDelegate
+{
+    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchString searchString: String!) -> Bool
+    {
+        self.filterContentForSearchText(searchString)
+        return true
+    }
+    
+    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchScope searchOption: Int) -> Bool
+    {
+        return true
+    }
+    
+    /*
+    Returns true or false depending on whether the given item should be a
+    part of the filtered item list after a search query is entered
+    */
+    func filterContentForSearchText(searchText: String, scope: String = "All")
+    {
+        self.filteredItemList = self.itemList.filter(
+        { (items: ItemList) -> Bool in
+            let stringMatch = items.name.rangeOfString(searchText)
+            return stringMatch != nil ? true : false
+        })
     }
 }
