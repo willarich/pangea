@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemTableViewController : UITableViewController, UISearchDisplayDelegate
+class ItemTableViewController : UITableViewController, UISearchBarDelegate
 {
     var itemList = [ItemList]()
     var filteredItemList = [ItemList]()
@@ -77,19 +77,13 @@ class ItemTableViewController : UITableViewController, UISearchDisplayDelegate
     }
 }
 
-// MARK:- UISearchDisplayDelegate
+// MARK:- UISearchBarDelegate
 
-extension ItemTableViewController : UISearchDisplayDelegate
+extension ItemTableViewController: UISearchBarDelegate
 {
-    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchString searchString: String!) -> Bool
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String)
     {
-        self.filterContentForSearchText(searchString)
-        return true
-    }
-    
-    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchScope searchOption: Int) -> Bool
-    {
-        return true
+        self.filterContentForSearchText(searchText)
     }
     
     /*
@@ -99,9 +93,9 @@ extension ItemTableViewController : UISearchDisplayDelegate
     func filterContentForSearchText(searchText: String, scope: String = "All")
     {
         self.filteredItemList = self.itemList.filter(
-        { (items: ItemList) -> Bool in
-            let stringMatch = items.name.rangeOfString(searchText)
-            return stringMatch != nil ? true : false
+            { (items: ItemList) -> Bool in
+                let stringMatch = items.name.rangeOfString(searchText)
+                return stringMatch != nil ? true : false
         })
     }
 }
