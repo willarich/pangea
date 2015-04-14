@@ -22,41 +22,32 @@
             </objects>
         </scene>
         <!--Item Search View Controller-->
-        <scene sceneID="lPq-zD-ub7">
+        <scene sceneID="rXH-sn-Pjp">
             <objects>
-                <tableViewController id="Fwj-6l-ZL2" customClass="ItemSearchViewController" customModule="pangea" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="5Qt-xS-1JV">
+                <viewController id="Bem-ej-zQI" customClass="ItemSearchViewController" customModule="pangea" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="MkD-az-vEE">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="kju-S4-psp" style="IBUITableViewCellStyleDefault" id="UAk-cP-FP2">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="DIy-Wk-U1f">
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UAk-cP-FP2" id="Om5-WJ-8yT">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DIy-Wk-U1f" id="bQY-mr-V3P">
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kju-S4-psp">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="muS-ZO-sKT" kind="show" identifier="itemDetail" id="FPb-ZP-YPm"/>
+                                    <segue destination="muS-ZO-sKT" kind="show" identifier="itemDetail" id="Lb9-ig-qVP"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Fwj-6l-ZL2" id="6Xc-uq-gCv"/>
-                            <outlet property="delegate" destination="Fwj-6l-ZL2" id="ApD-nO-Eh2"/>
-                        </connections>
                     </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="siT-ow-7yR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    <connections>
+                        <outlet property="tableView" destination="MkD-az-vEE" id="E4q-Ho-gOG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DdV-0i-Bka" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="584" y="1017"/>
+            <point key="canvasLocation" x="657" y="1020"/>
         </scene>
         <!--Item View Controller-->
         <scene sceneID="XjJ-GQ-dab">
@@ -119,7 +110,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="71f-QX-qZ9"/>
                     <connections>
-                        <segue destination="Fwj-6l-ZL2" kind="show" identifier="categoryDetail" id="2fu-fr-a8K"/>
+                        <segue destination="Bem-ej-zQI" kind="show" identifier="categoryDetail" id="c5i-C5-5Te"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V1g-TD-1Yi" userLabel="First Responder" sceneMemberID="firstResponder"/>
