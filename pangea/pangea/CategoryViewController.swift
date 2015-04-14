@@ -28,7 +28,7 @@ class CategoryViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
         let categoryType = sender as String
-        let destinationViewController = segue.destinationViewController as ItemTableViewController
+        let destinationViewController = segue.destinationViewController as ItemSearchViewController
         if (segue.identifier == "categoryDetail")
         {
             if (categoryType == "All")

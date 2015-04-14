@@ -21,64 +21,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--Item Search-->
-        <scene sceneID="EFv-Pe-7Lw">
+        <!--Item Search View Controller-->
+        <scene sceneID="lPq-zD-ub7">
             <objects>
-                <tableViewController id="ZT0-gf-c8g" customClass="ItemTableViewController" customModule="pangea" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="DI7-NH-ubm">
+                <tableViewController id="Fwj-6l-ZL2" customClass="ItemSearchViewController" customModule="pangea" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="5Qt-xS-1JV">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" placeholder="Search" id="Lgs-hE-Fh5">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
-                            <connections>
-                                <outlet property="delegate" destination="ZT0-gf-c8g" id="hLD-iZ-xwk"/>
-                            </connections>
-                        </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="vp1-GE-P4u">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="kju-S4-psp" style="IBUITableViewCellStyleDefault" id="UAk-cP-FP2">
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vp1-GE-P4u" id="gGy-7N-OhJ">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UAk-cP-FP2" id="Om5-WJ-8yT">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kju-S4-psp">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="muS-ZO-sKT" kind="show" identifier="itemDetail" id="f2B-Th-4og"/>
+                                    <segue destination="muS-ZO-sKT" kind="show" identifier="itemDetail" id="FPb-ZP-YPm"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
-                        <sections/>
                         <connections>
-                            <outlet property="dataSource" destination="ZT0-gf-c8g" id="Pc6-nq-OVf"/>
-                            <outlet property="delegate" destination="ZT0-gf-c8g" id="jzn-nt-EbB"/>
+                            <outlet property="dataSource" destination="Fwj-6l-ZL2" id="6Xc-uq-gCv"/>
+                            <outlet property="delegate" destination="Fwj-6l-ZL2" id="ApD-nO-Eh2"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Item Search" id="5Qq-Er-cTC"/>
-                    <connections>
-                        <outlet property="searchDisplayController" destination="r2d-5E-cz0" id="IXh-mh-6gE"/>
-                    </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hDM-nh-nof" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="G7d-mo-LKE">
-                    <connections>
-                        <outlet property="delegate" destination="ZT0-gf-c8g" id="kgV-R8-fhf"/>
-                        <outlet property="searchContentsController" destination="ZT0-gf-c8g" id="MjH-JO-mGn"/>
-                        <outlet property="searchResultsDataSource" destination="ZT0-gf-c8g" id="9r2-OL-KEz"/>
-                        <outlet property="searchResultsDelegate" destination="ZT0-gf-c8g" id="h0o-Xx-y0X"/>
-                    </connections>
-                </searchDisplayController>
-                <searchDisplayController id="r2d-5E-cz0">
-                    <connections>
-                        <outlet property="delegate" destination="ZT0-gf-c8g" id="wgJ-ra-9zW"/>
-                        <outlet property="searchBar" destination="Lgs-hE-Fh5" id="8uE-2y-wOi"/>
-                        <outlet property="searchContentsController" destination="ZT0-gf-c8g" id="C5T-7f-75n"/>
-                        <outlet property="searchResultsDataSource" destination="ZT0-gf-c8g" id="iur-Nl-kQt"/>
-                        <outlet property="searchResultsDelegate" destination="ZT0-gf-c8g" id="CMM-cj-05R"/>
-                    </connections>
-                </searchDisplayController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="siT-ow-7yR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="651" y="1011"/>
+            <point key="canvasLocation" x="584" y="1017"/>
         </scene>
         <!--Item View Controller-->
         <scene sceneID="XjJ-GQ-dab">
@@ -100,10 +78,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="9aY-5i-g58"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MW8-Eg-v7V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1418" y="1011"/>
+            <point key="canvasLocation" x="1620" y="1006"/>
         </scene>
         <!--Category View Controller-->
         <scene sceneID="Rph-sH-rcw">
@@ -140,7 +119,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="71f-QX-qZ9"/>
                     <connections>
-                        <segue destination="ZT0-gf-c8g" kind="show" identifier="categoryDetail" id="a1N-cY-zuF"/>
+                        <segue destination="Fwj-6l-ZL2" kind="show" identifier="categoryDetail" id="2fu-fr-a8K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V1g-TD-1Yi" userLabel="First Responder" sceneMemberID="firstResponder"/>
