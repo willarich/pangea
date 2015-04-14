@@ -27,6 +27,7 @@ class ItemSearchViewController: UITableViewController, UISearchResultsUpdating
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        self.definesPresentationContext = true
         
         self.title = "Item Search"
         self.tableView.delegate = self
