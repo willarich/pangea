@@ -28,10 +28,8 @@ class ItemSearchViewController: UITableViewController, UISearchBarDelegate, UISe
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        self.definesPresentationContext = true
-        
         self.title = "Item Search"
-        self.tableView.dataSource = self
+        self.definesPresentationContext = true
         
         self.searchController = UISearchController(searchResultsController: nil)
         self.searchController!.searchResultsUpdater = self
