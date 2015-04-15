@@ -22,32 +22,33 @@
             </objects>
         </scene>
         <!--Item Search View Controller-->
-        <scene sceneID="rXH-sn-Pjp">
+        <scene sceneID="x4J-i0-3uG">
             <objects>
-                <viewController id="Bem-ej-zQI" customClass="ItemSearchViewController" customModule="pangea" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="MkD-az-vEE">
+                <tableViewController id="caw-FX-QXZ" customClass="ItemSearchViewController" customModule="pangea" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Lkw-lK-aIG">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="DIy-Wk-U1f">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="y2D-YU-R3t">
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DIy-Wk-U1f" id="bQY-mr-V3P">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="y2D-YU-R3t" id="Cnl-C0-Wy2">
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="muS-ZO-sKT" kind="show" identifier="itemDetail" id="Lb9-ig-qVP"/>
+                                    <segue destination="muS-ZO-sKT" kind="show" identifier="itemDetail" id="MeE-fd-Fk1"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="caw-FX-QXZ" id="IeN-Dk-DH2"/>
+                            <outlet property="delegate" destination="caw-FX-QXZ" id="qhN-Py-1I3"/>
+                        </connections>
                     </tableView>
-                    <connections>
-                        <outlet property="tableView" destination="MkD-az-vEE" id="E4q-Ho-gOG"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DdV-0i-Bka" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lRg-6T-tdE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="657" y="1020"/>
+            <point key="canvasLocation" x="666" y="1015"/>
         </scene>
         <!--Item View Controller-->
         <scene sceneID="XjJ-GQ-dab">
@@ -110,7 +111,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="71f-QX-qZ9"/>
                     <connections>
-                        <segue destination="Bem-ej-zQI" kind="show" identifier="categoryDetail" id="c5i-C5-5Te"/>
+                        <segue destination="caw-FX-QXZ" kind="show" identifier="categoryDetail" id="zjO-7h-iqa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V1g-TD-1Yi" userLabel="First Responder" sceneMemberID="firstResponder"/>

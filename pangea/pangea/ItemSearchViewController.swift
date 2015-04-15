@@ -8,9 +8,8 @@
 
 import UIKit
 
-class ItemSearchViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating
+class ItemSearchViewController: UITableViewController, UISearchBarDelegate, UISearchResultsUpdating
 {
-    @IBOutlet weak var tableView: UITableView!
     var searchController: UISearchController?
     let categories = ["All", "Chocolate", "Hard", "Other"]
     
@@ -46,15 +45,6 @@ class ItemSearchViewController: UIViewController, UITableViewDataSource, UISearc
         
     }
     
-    override func viewWillAppear(animated: Bool)
-    {
-        super.viewWillAppear(animated)
-        if let selectedIndexPath = self.tableView.indexPathForSelectedRow()
-        {
-            self.tableView.deselectRowAtIndexPath(selectedIndexPath, animated: animated)
-        }
-    }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
         if (segue.identifier == "itemDetail")
@@ -64,13 +54,8 @@ class ItemSearchViewController: UIViewController, UITableViewDataSource, UISearc
             itemDetailViewController.title = selectedCell.textLabel?.text
         }
     }
-}
-
-// MARK:- UITableViewDataSource
-
-extension ItemSearchViewController: UITableViewDataSource
-{
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
         var item : ItemList
@@ -88,7 +73,7 @@ extension ItemSearchViewController: UITableViewDataSource
         return cell
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         if (self.searchController!.active)
         {
