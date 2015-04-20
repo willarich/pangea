@@ -22,7 +22,7 @@ class ItemDetailViewController: UIViewController
     {
         super.awakeFromNib()
         let nibContents = NSBundle.mainBundle().loadNibNamed("ItemDetailView", owner: self, options: nil)
-        self.view = nibContents[0] as UIView
+        self.view = nibContents[0] as! UIView
         self.viewDidLoad()
     }
 
