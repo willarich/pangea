@@ -14,32 +14,20 @@ class CategoryViewController: UIViewController {
         super.viewDidLoad()
     }
 
-
-    @IBAction func All()
+    @IBAction func categoryButton_Clicked(sender: AnyObject?)
     {
-        self.performSegueWithIdentifier("categoryDetail", sender: "All")
+        self.performSegueWithIdentifier("categoryDetail", sender: sender)
     }
-
-    @IBAction func Other()
-    {
-        self.performSegueWithIdentifier("categoryDetail", sender: "Other")
-    }
-
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
-        let categoryType = sender as String
-        let destinationViewController = segue.destinationViewController as ItemSearchViewController
         if (segue.identifier == "categoryDetail")
         {
-            if (categoryType == "All")
-            {
-                let hi = 1
-                println("All clicked")
-            }
-            else
-            {
-                let hi = 2
-            }
+            let clickedButton = sender as! UIButton
+            let category = clickedButton.titleLabel!.text!
+            let destinationViewController = segue.destinationViewController as! ItemSearchViewController
+            let categoryIndex = find(destinationViewController.categories, category)!
+            destinationViewController.category = category
         }
     }
 }

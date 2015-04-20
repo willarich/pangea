@@ -12,6 +12,7 @@ class ItemSearchViewController: UITableViewController, UISearchBarDelegate, UISe
 {
     var searchController: UISearchController?
     let categories = ["All", "Chocolate", "Hard", "Other"]
+    var category = "All"
     
     let itemList = [ItemList(category:"Chocolate", name:"Chocolate Bar", price: 1234),
     ItemList(category:"Chocolate", name:"Chocolate Chip", price: 1234),
@@ -41,46 +42,32 @@ class ItemSearchViewController: UITableViewController, UISearchBarDelegate, UISe
         self.searchController!.searchBar.delegate = self
         self.tableView.tableHeaderView = self.searchController!.searchBar
         
+        let categoryIndex = find(self.categories, self.category)!
+        self.searchController!.searchBar.selectedScopeButtonIndex = categoryIndex
+        self.updateSearchResultsForSearchController(self.searchController!)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
         if (segue.identifier == "itemDetail")
         {
-            let itemDetailViewController = segue.destinationViewController as UIViewController
-            let selectedCell = sender as UITableViewCell
+            let itemDetailViewController = segue.destinationViewController as! UIViewController
+            let selectedCell = sender as! UITableViewCell
             itemDetailViewController.title = selectedCell.textLabel?.text
         }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let cell = self.tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
-        var item : ItemList
-        
-        if self.searchController!.active
-        {
-            item = self.filteredList[indexPath.row]
-        }
-        else
-        {
-            item = self.itemList[indexPath.row]
-        }
-        
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell
+        var item = self.filteredList[indexPath.row]
         cell.textLabel!.text = item.name
         return cell
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        if (self.searchController!.active)
-        {
-            return self.filteredList.count
-        }
-        else
-        {
-            return self.itemList.count
-        }
+        return self.filteredList.count
     }
 }
 
@@ -90,6 +77,8 @@ extension ItemSearchViewController: UISearchBarDelegate
 {
     func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int)
     {
+        let categoryIndex = self.searchController!.searchBar.selectedScopeButtonIndex
+        self.category = self.categories[categoryIndex]
         self.updateSearchResultsForSearchController(self.searchController!)
     }
 }
@@ -109,15 +98,13 @@ extension ItemSearchViewController: UISearchResultsUpdating
     
     func getCategoryPredicate(searchController: UISearchController) -> ItemList -> Bool
     {
-        let selectedIndex = searchController.searchBar.selectedScopeButtonIndex
-        let selectedCategory = self.categories[selectedIndex]
-        if (selectedCategory == "All")
+        if (self.category == "All")
         {
             return { (_: ItemList) in true }
         }
         else
         {
-            return { (item: ItemList) in item.category == selectedCategory }
+            return { (item: ItemList) in item.category == self.category }
         }
     }
     

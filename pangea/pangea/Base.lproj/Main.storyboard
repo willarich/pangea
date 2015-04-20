@@ -88,22 +88,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KjA-rz-3YX">
-                                <rect key="frame" x="174" y="304" width="46" height="30"/>
-                                <state key="normal" title="Other">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="Other" destination="50f-ZW-aAO" eventType="touchUpInside" id="U1p-5E-5CH"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zbr-Pd-PkO">
-                                <rect key="frame" x="129" y="157" width="46" height="30"/>
+                                <rect key="frame" x="49" y="157" width="46" height="30"/>
                                 <state key="normal" title="All">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="All" destination="50f-ZW-aAO" eventType="touchUpInside" id="Ieo-aj-Jta"/>
+                                    <action selector="categoryButton_Clicked:" destination="50f-ZW-aAO" eventType="touchUpInside" id="nk9-h8-q6e"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K1S-0G-rnp">
+                                <rect key="frame" x="49" y="302" width="34" height="30"/>
+                                <state key="normal" title="Hard">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="categoryButton_Clicked:" destination="50f-ZW-aAO" eventType="touchUpInside" id="jvg-eY-dnR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KjA-rz-3YX">
+                                <rect key="frame" x="155" y="302" width="46" height="30"/>
+                                <state key="normal" title="Other">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="categoryButton_Clicked:" destination="50f-ZW-aAO" eventType="touchUpInside" id="2KP-7d-3Ct"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cjo-kZ-D2c">
+                                <rect key="frame" x="155" y="157" width="70" height="30"/>
+                                <state key="normal" title="Chocolate">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="categoryButton_Clicked:" destination="50f-ZW-aAO" eventType="touchUpInside" id="n0c-Ud-vs0"/>
                                 </connections>
                             </button>
                         </subviews>
