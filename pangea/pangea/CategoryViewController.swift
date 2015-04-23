@@ -18,6 +18,10 @@ class CategoryViewController: UIViewController {
     {
         self.performSegueWithIdentifier("categoryDetail", sender: sender)
     }
+    @IBAction func User()
+    {
+        self.performSegueWithIdentifier("userDetail", sender: "")
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
@@ -29,5 +33,10 @@ class CategoryViewController: UIViewController {
             let categoryIndex = find(destinationViewController.categories, category)!
             destinationViewController.category = category
         }
+        else
+        {
+            let destinationViewController = segue.destinationViewController as! UserDetailViewController
+        }
+
     }
 }
